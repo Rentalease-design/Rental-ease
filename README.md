@@ -1,2 +1,2 @@
 # Rental-ease
-Privacy-first platform for Botswana
+Privacy-first rental platform for Botswana
