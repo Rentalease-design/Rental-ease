@@ -51,7 +51,11 @@
   Tenant Dashboard — My Interests
 </header>
 
-<div class="container" id="interestList"></div>
+<div class="status">Sent: ${item.time}</div>
+<div class="status">Landlord Rating: ${item.landlordRating || "Not rated yet"}</div>
+<button onclick="rateLandlord(${index})" style="margin-top:8px; padding:8px; border:none; border-radius:8px; background:linear-gradient(to right,#2563eb,#4f46e5); color:white;">
+⭐ Rate Landlord
+</button>
 
 <script>
 let interests = JSON.parse(localStorage.getItem("interests")) || [];
