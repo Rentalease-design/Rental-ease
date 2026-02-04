@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Property — Rental-ease</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      padding: 16px;
+      background: #020617;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: gold;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .button {
+      margin-top: 16px;
+      padding: 14px;
+      text-align: center;
+      background: linear-gradient(to right, #2563eb, #4f46e5);
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  ← Back to Listings
+</header>
+
+<div class="container">
+
+  <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2">
+
+  <h2>Modern 1-Bedroom Apartment</h2>
+  <div class="price">P3,200 / month</div>
+  <div>📍 Gaborone West (Exact location hidden)</div>
+
+  <p>
+    Spacious modern apartment with kitchen, secure parking,
+    water included, close to transport and shops.
+  </p>
+
+  <div>👥 14 people interested</div>
+
+  <div class="button" onclick="showInterest()">
+    ✨ I'm Interested ✨
+  </div>
+
+  <div class="note">
+    No phone numbers allowed. Landlord identity hidden.
+  </div>
+
+</div>
+
+<script>
+function showInterest() {
+  alert("Interest sent! Waiting for landlord decision.");
+}
+</script>
+
+</body>
+</html>
