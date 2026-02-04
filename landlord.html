@@ -83,10 +83,19 @@ if (interests.length === 0) {
     `;
     container.appendChild(div);
   });
-}
-
 function selectTenant(index) {
-  alert("Tenant selected! Contact & location will unlock in future version.");
+  interests = interests.map((item, i) => {
+    if (i === index) {
+      item.status = "🎉 Selected";
+    } else if (!item.status) {
+      item.status = "❌ Not Selected";
+    }
+    return item;
+  });
+
+  localStorage.setItem("interests", JSON.stringify(interests));
+  alert("Tenant selected! Status updated.");
+  location.reload();
 }
 </script>
 
