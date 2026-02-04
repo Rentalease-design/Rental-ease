@@ -66,7 +66,7 @@ if (interests.length === 0) {
     div.innerHTML = `
       <div><strong>${item.property}</strong></div>
       <div>Message: ${item.message}</div>
-      <div class="status">Status: ⏳ Waiting for landlord decision</div>
+      <div class="status">Status: ${item.status || "⏳ Waiting for landlord decision"}</div>
       <div class="status">Sent: ${item.time}</div>
     `;
     container.appendChild(div);
