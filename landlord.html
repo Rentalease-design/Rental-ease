@@ -78,8 +78,11 @@ if (interests.length === 0) {
       <div>Message: ${item.message}</div>
       <div>Sent: ${item.time}</div>
       <div class="button" onclick="selectTenant(${index})">
-        Select Tenant
-      </div>
+  Select Tenant
+</div>
+<div class="button" onclick="rateTenant(${index})" style="margin-top:6px;">
+  ⭐ Rate Tenant
+</div>
     `;
     container.appendChild(div);
   });
