@@ -100,6 +100,16 @@ function selectTenant(index) {
   alert("Tenant selected! Status updated.");
   location.reload();
 }
+  function rateTenant(index) {
+  let rating = prompt("Rate tenant from 1 to 5 stars:");
+  if (!rating || rating < 1 || rating > 5) return;
+
+  interests[index].tenantRating = rating;
+  localStorage.setItem("interests", JSON.stringify(interests));
+
+  alert("Tenant rated successfully!");
+  location.reload();
+}
 </script>
 
 </body>
