@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tenant Dashboard — Rental-ease</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      padding: 16px;
+      background: #020617;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    .card {
+      background: #111827;
+      margin-bottom: 12px;
+      padding: 14px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+
+    .status {
+      margin-top: 6px;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .empty {
+      text-align: center;
+      color: #94a3b8;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  Tenant Dashboard — My Interests
+</header>
+
+<div class="container" id="interestList"></div>
+
+<script>
+let interests = JSON.parse(localStorage.getItem("interests")) || [];
+let container = document.getElementById("interestList");
+
+if (interests.length === 0) {
+  container.innerHTML = "<div class='empty'>You haven't shown interest yet.</div>";
+} else {
+  interests.forEach(item => {
+    let div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <div><strong>${item.property}</strong></div>
+      <div>Message: ${item.message}</div>
+      <div class="status">Status: ⏳ Waiting for landlord decision</div>
+      <div class="status">Sent: ${item.time}</div>
+    `;
+    container.appendChild(div);
+  });
+}
+</script>
+
+</body>
+</html>
