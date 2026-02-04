@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Landlord Dashboard — Rental-ease</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      padding: 16px;
+      background: #020617;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    .card {
+      background: #111827;
+      margin-bottom: 12px;
+      padding: 14px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+
+    .name {
+      font-weight: bold;
+      color: gold;
+    }
+
+    .button {
+      margin-top: 10px;
+      padding: 10px;
+      background: linear-gradient(to right, #2563eb, #4f46e5);
+      text-align: center;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .empty {
+      color: #94a3b8;
+      text-align: center;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  Landlord Dashboard — Interested Tenants
+</header>
+
+<div class="container" id="tenantList"></div>
+
+<script>
+let interests = JSON.parse(localStorage.getItem("interests")) || [];
+let container = document.getElementById("tenantList");
+
+if (interests.length === 0) {
+  container.innerHTML = "<div class='empty'>No tenant interest yet.</div>";
+} else {
+  interests.forEach((item, index) => {
+    let div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <div class="name">${item.name}</div>
+      <div>Property: ${item.property}</div>
+      <div>Message: ${item.message}</div>
+      <div>Sent: ${item.time}</div>
+      <div class="button" onclick="selectTenant(${index})">
+        Select Tenant
+      </div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function selectTenant(index) {
+  alert("Tenant selected! Contact & location will unlock in future version.");
+}
+</script>
+
+</body>
+</html>
