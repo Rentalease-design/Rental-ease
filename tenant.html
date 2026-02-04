@@ -57,6 +57,17 @@
 ⭐ Rate Landlord
 </button>
 
+  function rateLandlord(index) {
+  let rating = prompt("Rate landlord from 1 to 5 stars:");
+  if (!rating || rating < 1 || rating > 5) return;
+
+  interests[index].landlordRating = rating;
+  localStorage.setItem("interests", JSON.stringify(interests));
+
+  alert("Landlord rated successfully!");
+  location.reload();
+}
+
 <script>
 let interests = JSON.parse(localStorage.getItem("interests")) || [];
 let container = document.getElementById("interestList");
