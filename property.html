@@ -85,6 +85,23 @@
 
 <script>
 function showInterest() {
+  let name = prompt("Enter your name:");
+  if (!name) return;
+
+  let message = prompt("Why are you interested?");
+  if (!message) return;
+
+  let interests = JSON.parse(localStorage.getItem("interests")) || [];
+
+  interests.push({
+    property: "Modern 1-Bedroom Apartment",
+    name: name,
+    message: message,
+    time: new Date().toLocaleString()
+  });
+
+  localStorage.setItem("interests", JSON.stringify(interests));
+
   alert("Interest sent! Waiting for landlord decision.");
 }
 </script>
