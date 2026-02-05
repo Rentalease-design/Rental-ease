@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login — Rental-ease</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 16px;
+      padding: 14px;
+      width: 100%;
+      border-radius: 10px;
+      border: none;
+      font-weight: bold;
+      background: linear-gradient(to right, #2563eb, #4f46e5);
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Rental-ease Login</h2>
+
+<input id="name" placeholder="Enter your real name">
+
+<select id="role">
+  <option value="tenant">Tenant</option>
+  <option value="landlord">Landlord</option>
+</select>
+
+<button onclick="login()">Continue</button>
+
+<script>
+function login() {
+  let name = document.getElementById("name").value.trim();
+  let role = document.getElementById("role").value;
+
+  if (!name) {
+    alert("Enter your name");
+    return;
+  }
+
+  let anonName = role + "_" + Math.floor(Math.random() * 9000 + 1000);
+
+  let user = {
+    realName: name,
+    role: role,
+    anonName: anonName
+  };
+
+  localStorage.setItem("user", JSON.stringify(user));
+
+  if (role === "tenant") {
+    window.location.href = "tenant.html";
+  } else {
+    window.location.href = "landlord.html";
+  }
+}
+</script>
+
+</body>
+</html>
