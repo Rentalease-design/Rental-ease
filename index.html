@@ -80,23 +80,34 @@
   </a>
 </div>
 
-<div class="card">
-  <h3>Modern 1-Bedroom Apartment</h3>
-  <div class="price">P3,200 / month</div>
-  <div>📍 Gaborone West</div>
-  <div>👥 14 interested</div>
-  <div class="button">View Details</div>
-</div>
+<div id="propertyList"></div>
 
-<div class="card">
-  <h3>Room for Rent — Block 8</h3>
-  <div class="price">P1,500 / month</div>
-  <div>📍 Block 8</div>
-  <div>👥 7 interested</div>
-  <a href="property.html" style="text-decoration:none; color:white;">
-  <div class="button">View Details</div>
-</a>
-</div>
+<script>
+let properties = JSON.parse(localStorage.getItem("properties")) || [];
+let list = document.getElementById("propertyList");
+
+if (properties.length === 0) {
+  list.innerHTML = "<p style='padding:12px; color:#94a3b8;'>No properties posted yet.</p>";
+} else {
+  properties.forEach((p, index) => {
+    let card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h3>${p.title}</h3>
+      <div class="price">P${p.price} / month</div>
+      <div>📍 ${p.area}</div>
+      <div>👥 ${p.interestCount || 0} interested</div>
+      <div class="button" onclick="viewProperty(${index})">View Details</div>
+    `;
+    list.appendChild(card);
+  });
+}
+
+function viewProperty(index) {
+  localStorage.setItem("selectedProperty", index);
+  window.location.href = "property.html";
+}
+</script>
 
 </body>
 </html>
